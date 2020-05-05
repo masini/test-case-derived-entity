@@ -18,11 +18,14 @@ public class TestHibernateDerivedEntity {
 
         em.getTransaction().begin();
         final ParentEntity parentEntity = ParentEntity.builder().id("bar-158").name("barrone").build();
+        em.persist(parentEntity);
+        em.getTransaction().commit();
+
+        em.getTransaction().begin();
         DerivedEntity derivedEntity = DerivedEntity.builder().name("derived")
                 .parent(parentEntity)
                 .build();
 
-        em.persist(parentEntity);
         em.merge(derivedEntity);
         em.getTransaction().commit();
 
