@@ -9,8 +9,8 @@
             Persistence unit for Hibernate User Guide
         </description>
 
-        <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-
+        <!--provider>org.hibernate.jpa.HibernatePersistenceProvider</provider-->
+        <provider>org.eclipse.persistence.jpa.PersistenceProvider</provider>
         <class>net.lucamasini.DerivedEntity</class>
         <class>net.lucamasini.ParentEntity</class>
 
@@ -32,6 +32,10 @@
 
             <property name="hibernate.hbm2ddl.auto"
                       value="update" />
+
+            <property name="eclipselink.ddl-generation" value="create-tables" />
+            <property name="eclipselink.ddl-generation.output-mode" value="database" />
+
         </properties>
 
     </persistence-unit>

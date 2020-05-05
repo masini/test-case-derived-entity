@@ -16,10 +16,11 @@ import java.io.Serializable;
 @Entity
 public class DerivedEntity implements Serializable {
 
+    /*
     @Id
     String id;
-
-    @MapsId
+    */
+    @Id
     @OneToOne
     ParentEntity parent;
 
